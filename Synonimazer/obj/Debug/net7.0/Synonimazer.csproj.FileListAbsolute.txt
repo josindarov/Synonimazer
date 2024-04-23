@@ -3,7 +3,6 @@ C:\Users\99899\Desktop\Synonimazer\Synonimazer\bin\Debug\net7.0\Synonimazer.deps
 C:\Users\99899\Desktop\Synonimazer\Synonimazer\bin\Debug\net7.0\Synonimazer.runtimeconfig.json
 C:\Users\99899\Desktop\Synonimazer\Synonimazer\bin\Debug\net7.0\Synonimazer.dll
 C:\Users\99899\Desktop\Synonimazer\Synonimazer\bin\Debug\net7.0\Synonimazer.pdb
-C:\Users\99899\Desktop\Synonimazer\Synonimazer\obj\Debug\net7.0\Synonimazer.csproj.AssemblyReference.cache
 C:\Users\99899\Desktop\Synonimazer\Synonimazer\obj\Debug\net7.0\Synonimazer.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\99899\Desktop\Synonimazer\Synonimazer\obj\Debug\net7.0\Synonimazer.AssemblyInfoInputs.cache
 C:\Users\99899\Desktop\Synonimazer\Synonimazer\obj\Debug\net7.0\Synonimazer.AssemblyInfo.cs
@@ -13,3 +12,4 @@ C:\Users\99899\Desktop\Synonimazer\Synonimazer\obj\Debug\net7.0\refint\Synonimaz
 C:\Users\99899\Desktop\Synonimazer\Synonimazer\obj\Debug\net7.0\Synonimazer.pdb
 C:\Users\99899\Desktop\Synonimazer\Synonimazer\obj\Debug\net7.0\Synonimazer.genruntimeconfig.cache
 C:\Users\99899\Desktop\Synonimazer\Synonimazer\obj\Debug\net7.0\ref\Synonimazer.dll
+C:\Users\99899\Desktop\Synonimazer\Synonimazer\obj\Debug\net7.0\Synonimazer.csproj.AssemblyReference.cache

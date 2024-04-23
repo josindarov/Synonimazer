@@ -48,31 +48,93 @@
     new []{"azobli","jafoli", "uqubatli"},
     new []{"ayb", "gunoh", "jinoyat"},
     new []{"ayyorona", "mug‘ombirona", "makkorona"},
-    new []{"almashmoq", "ayirboshlamoq", "ayirbosh qilmoq"}
+    new []{"almashmoq", "ayirboshlamoq", "ayirbosh qilmoq"},
+    new []{"ajratmoq", "ayirmoq", "judo qilmoq"},
+    new []{"aynimoq", "achimoq", "buzilmoq"},
+    new []{"ayniqsa", "xususan", "jumladan"},
+    new []{"ayriliq", "judolik", "hijron"},
+    new []{"janjallashmoq", "aytishmoq", "koyishmoq mojarolashmoq"},
+    new []{"aytmaslik", "yashirmoq", "bekitmoq"},
+    new []{"aytmoq","demoq", "bayon qilmoq"},
+    new []{"aytmoq", "talaffuz qilmoq"},
+    new []{"taklif qilmoq", "chaqirmoq"},
+    new []{"kuylamoq", "aytmoq", "xirgoyi qilmoq"},
+    new []{"aka", "og‘a", "birodar"},
+    new []{"teskari", "aks", "qarshi"},
+    new []{"aktyor", "artist"},
+    new []{"alay-balay", "u-bu", "g‘ing-ping"},
+    new []{"alam", "dard", "iztirob"},
+    new []{"alanga", "yolqin", "lova"},
+    new []{"albatta", "shubhasiz", "muqarrar"},
+    new []{"aldamoq", "laqillatmoq", "avramoq"},
+    new []{"firibgar", "aldamchi", "qallob", "tovlamachi"},
+    new []{"yolg‘onchi", "aldoqchi", "aldamchi"},
 };
 
-Console.Write("Input Text: ");
-string? text = Console.ReadLine();
-string[]? words = text?.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+string[] qoshimchalar = { "siga", "ga", "lar" };
 
-if (words != null)
-{
-    for (int i = 0; i < words.Length; i++)
-    {
-        foreach (var synonymGroup in synonyms)
+        Console.Write("Input Text: ");
+        string? text = Console.ReadLine();
+        string[]? words = text?.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+        if (words != null)
         {
-            if (synonymGroup.Contains(words[i]))
+            // Dictionary to store original words and their replacements
+            Dictionary<string, string> wordReplacements = new Dictionary<string, string>();
+
+            for (int i = 0; i < words.Length; i++)
             {
-                int index = Array.IndexOf(synonymGroup, words[i]);
-                words[i] = synonymGroup[(index + 1) % synonymGroup.Length];
-                break;
+                string cutString = "";
+                foreach (var qoshimcha in qoshimchalar)
+                {
+                    if (words[i].Contains(qoshimcha))
+                    {
+                        int index = words[i].IndexOf(qoshimcha);
+                        cutString = words[i].Substring(index);
+                        words[i] = words[i].Replace(qoshimcha, "");
+                        break;
+                    }
+                }
+
+                foreach (var synonymGroup in synonyms)
+                {
+                    if (synonymGroup.Contains(words[i]))
+                    {
+                        int index = Array.IndexOf(synonymGroup, words[i]);
+                        string changedWord = words[i];
+                        string replacementWord = synonymGroup[(index + 1) % synonymGroup.Length];
+                        words[i] = replacementWord;
+
+                        if (!string.IsNullOrEmpty(cutString))
+                        {
+                            // Add the cutString back after swapping the word
+                            words[i] += cutString;
+                        }
+
+                        wordReplacements.Add(words[i], replacementWord + cutString);
+                        break;
+                    }
+                }
+            }
+
+            // Print the modified sentence with changed words in different color
+            Console.Write("Modified Text: ");
+            foreach (var word in words)
+            {
+                if (wordReplacements.ContainsKey(word))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write(wordReplacements[word] + " ");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.Write(word + " ");
+                }
             }
         }
-    }
-}
 
-// Print the modified sentence
-Console.WriteLine(string.Join(" ", words));
+
 
 
 
